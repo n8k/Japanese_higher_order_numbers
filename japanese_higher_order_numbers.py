@@ -2,9 +2,9 @@ import math as m
 
 def formatter(n):
 	return_format = '0,.0f'
-	if n in range(-10, 10):
+	if n in range(-100, 100):
 		return_format = '0.1f'
-	return format(n ,return_format)
+	return format(n/10.0 ,return_format)
 
 def num_to_jp(n, *args):
 
@@ -30,10 +30,12 @@ def num_to_jp(n, *args):
 
 	exponent = m.floor(m.log10(abs(n)))
 	significand = n / 10**exponent
-	add_zeros = exponent % 4
+	decimal_places = exponent % 4
 	
-	result_signifcand = str(formatter(significand * 10**add_zeros))
-	result_postfix = str(jp_number_postfix.get(exponent-add_zeros, "Error"))
+	print(significand, decimal_places)
+	
+	result_signifcand = str(formatter(significand * 10**(decimal_places+1)))
+	result_postfix = str(jp_number_postfix.get(exponent - decimal_places, "Error"))
 	
 	if result_postfix == "Error":
 		return "Error: Maximum output value is 9,999 x 10^64"
