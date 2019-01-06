@@ -16,14 +16,20 @@ Describing large numbers in Japanese can be difficult if you are used to the app
 
 ## What else?
 
+<strong>Large numbers:</strong>
+
 Supports appended Japanese words for numbers as large as 9999 x 10^64.
 
-When the base number is less than 10, format to shows one decimal-place for a little more precision:
+<strong>Decimals for less than 10:</strong>
+
+When the base number is less than 10, format to show one decimal-place for a little more precision:
 - Example: num_to_jp(12000) results in 1.2万
 
-Rounding:
+<strong>Rounding:</strong>
 - num_to_jp(995000) results in 99万
 - num_to_jp(995001) results in 100万
+
+<strong>Append units or counters:</strong>
 
 Optionally append any string via the second argument:
 - Example: num_to_jp(1000000,"円") results in: 100万円
